@@ -7,10 +7,10 @@ import {
   Alert,
 } from "react-native";
 import { createUserWithEmailAndPassword } from "firebase/auth";
-import Loader from "../Components/CustomLoader";
-import COLORS from '../../Const/colors'
+import COLORS from "../../Const/colors";
 import Input from "../Components/CustomInput"
 import Button from "../Components/CustomButton"
+import Loader from "../Components/CustomLoader";
 import { auth } from "../../../FirebaseAuth";
 import { getFirestore, doc, setDoc } from "firebase/firestore";
 import { StatusBar } from "expo-status-bar";
@@ -67,7 +67,7 @@ const RegisterScreen = ({ navigation }) => {
       Alert.alert("Erro", error.message);
     }
   };
-
+ 
    //Funcao para manipular alterações
   const handleOnChange = (text, input) => {
     setInputs((prevState) => ({ ...prevState, [input]: text }));
@@ -105,7 +105,7 @@ const RegisterScreen = ({ navigation }) => {
             fontWeight: '200',
             marginTop: 10
           }}>
-            IncluStep.
+            Notes App.
           </Text>
 
           <View style={{ marginVertical: 20 }}>
