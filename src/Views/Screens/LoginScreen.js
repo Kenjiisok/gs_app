@@ -3,11 +3,12 @@ import { View, Text, SafeAreaView, Keyboard, Alert } from "react-native";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../../../FirebaseAuth";
 import { StatusBar } from "expo-status-bar";
-import Button from "../Components/CustomButton";
 import Loader from "../Components/CustomLoader";
-import Input from "../Components/CustomInput";
-import COLORS from "../../Const/colors";
+import COLORS from '../../Const/colors'
+import Input from "../Components/CustomInput"
+import Button from "../Components/CustomButton"
 
+//Estados para manipulação, carregamentos e erros
 const LoginScreen = ({ navigation }) => {
   const [inputs, setInputs] = useState({ email: "", password: "" });
   const [loading, setLoading] = useState(false);
@@ -42,7 +43,9 @@ const LoginScreen = ({ navigation }) => {
       console.log(user);
       navigation.replace("HomeScreen");
     } catch (error) {
-      Alert.alert("Dados inválidos. Por favor, tente novamente."); // Exibe mensagem de erro
+      Alert.alert(
+        "Dados inválidos. Por favor, tente novamente."
+      ); // Exibe mensagem de erro
       setLoading(false);
       console.log(error);
     }
@@ -58,10 +61,12 @@ const LoginScreen = ({ navigation }) => {
     setErrors((prevState) => ({ ...prevState, [input]: error }));
   };
 
+
+  //UI
   return (
     <>
       <StatusBar />
-      <SafeAreaView>
+      <SafeAreaView style={{ backgroundColor: COLORS.whitem, flex: 1 }}>
         <Loader visible={loading} />
         <View style={{ paddingTop: 100, paddingHorizontal: 25 }}>
           <Text
@@ -72,7 +77,7 @@ const LoginScreen = ({ navigation }) => {
               fontStyle: "italic",
             }}
           >
-            IncluStep
+           IncluStep
           </Text>
         </View>
 
@@ -136,3 +141,5 @@ const LoginScreen = ({ navigation }) => {
     </>
   );
 };
+
+export default LoginScreen;
